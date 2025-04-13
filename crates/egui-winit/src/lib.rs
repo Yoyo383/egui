@@ -767,10 +767,8 @@ impl State {
             if pressed {
                 if is_cut_command(self.egui_input.modifiers, active_key) {
                     self.egui_input.events.push(egui::Event::Cut);
-                    return;
                 } else if is_copy_command(self.egui_input.modifiers, active_key) {
                     self.egui_input.events.push(egui::Event::Copy);
-                    return;
                 } else if is_paste_command(self.egui_input.modifiers, active_key) {
                     if let Some(contents) = self.clipboard.get() {
                         let contents = contents.replace("\r\n", "\n");
@@ -778,7 +776,6 @@ impl State {
                             self.egui_input.events.push(egui::Event::Paste(contents));
                         }
                     }
-                    return;
                 }
             }
 
